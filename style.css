@@ -9,7 +9,7 @@ body {
   padding: 0;
 }
 
-.tmblr-iframe--unified-controls {
+iframe[name="unified-controls"] {
     display: none !important;
 }
 
