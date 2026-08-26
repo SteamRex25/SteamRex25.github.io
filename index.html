@@ -26,6 +26,21 @@
             </script>
         </div>
 
+<script>
+    const removeTumblrControls = () => {
+        document.querySelectorAll('iframe[name="unified-controls"]').forEach(iframe => {
+            iframe.remove();
+        });
+    };
+
+    removeTumblrControls();
+
+    new MutationObserver(removeTumblrControls).observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+</script>
+
         <div>
             <h2>My Socials :3</h2>
             <a href="https://bsky.app/profile/steamrex25.bsky.social">
