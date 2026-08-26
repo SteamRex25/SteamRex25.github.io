@@ -1,6 +1,7 @@
 body {
   background-image: url(/dark-waves.jpg);
   background-size: repeat;
+  background-position: top left;
   overflow-x: hidden;
   color: white;
   font-family: Verdana;
