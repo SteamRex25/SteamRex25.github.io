@@ -9,6 +9,10 @@ body {
   padding: 0;
 }
 
+.iframe-controls-container {
+    display: none !important;
+}
+
 /* Main Content */
 main {
   display: flex;
