@@ -78,8 +78,8 @@ main {
 /* Pronouns.Page Embed */
 .embed {
   display: block;
-  height: 400px;
-  width: 100vw;
+  height: 500px;
+  width: 80vw;
   border: none;
 }
 
