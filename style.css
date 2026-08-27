@@ -35,7 +35,6 @@ iframe[name="unified-controls"] {
     padding: 15px;
     color: black;
     max-height: 1500px;
-    overflow-y: visible;
     color: #000 !important;
 }
 
