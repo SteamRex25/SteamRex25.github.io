@@ -37,6 +37,8 @@ iframe[name="unified-controls"] {
     color: black;
     max-height: 1500px;
     color: #000 !important;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .tumblr-content * {
