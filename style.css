@@ -43,6 +43,22 @@ iframe[name="unified-controls"] {
     color: #000 !important;
 }
 
+.tumblr-content blockquote {
+    border-left: 3px solid #888;
+    margin: 15px 0;
+    padding: 10px 15px;
+    background: #eeeeee;
+    color: #333 !important;
+}
+
+.tumblr-content blockquote blockquote {
+    background: #dddddd;
+}
+
+.tumblr-content blockquote blockquote blockquote {
+    background: #cccccc;
+}
+
 /* Main Content */
 main {
   display: flex;
