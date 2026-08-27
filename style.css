@@ -35,7 +35,12 @@ iframe[name="unified-controls"] {
     padding: 15px;
     color: black;
     max-height: 1500px;
-    overflow-y: auto;
+    overflow-y: visible;
+    color: #000 !important;
+}
+
+.tumblr-content * {
+    color: #000 !important;
 }
 
 /* Main Content */
