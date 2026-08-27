@@ -59,6 +59,12 @@ iframe[name="unified-controls"] {
     background: #cccccc;
 }
 
+.tumblr-content .tumblr_post {
+    margin-bottom: 35px !important;
+    padding-bottom: 25px !important;
+    border-bottom: 2px dashed #aaa;
+}
+
 /* Main Content */
 main {
   display: flex;
