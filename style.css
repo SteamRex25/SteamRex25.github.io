@@ -14,6 +14,29 @@ iframe[name="unified-controls"] {
     display: none !important;
 }
 
+.tumblr-window {
+    border: 3px solid #000;
+    box-shadow: 8px 8px 0 #000;
+    background: white;
+}
+
+.tumblr-window-bar {
+    background: #000;
+    color: white;
+    padding: 8px;
+    font-family: monospace;
+}
+
+.window-title {
+    margin-left: 10px;
+}
+
+.tumblr-content {
+    padding: 15px;
+    max-height: 700px;
+    overflow-y: auto;
+}
+
 /* Main Content */
 main {
   display: flex;
