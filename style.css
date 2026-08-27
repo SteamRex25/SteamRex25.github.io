@@ -35,7 +35,7 @@ iframe[name="unified-controls"] {
 .tumblr-content {
     padding: 15px;
     color: black;
-    max-height: 800px;
+    max-height: 1000px;
     color: #000 !important;
     overflow-y: auto;
     overflow-x: hidden;
@@ -78,7 +78,7 @@ main {
 /* Pronouns.Page Embed */
 .embed {
   display: block;
-  height: 600px;
+  height: 400px;
   width: 80vw;
   border: none;
 }
