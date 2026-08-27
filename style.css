@@ -79,7 +79,7 @@ main {
 .embed {
   display: block;
   height: 400px;
-  width: 80vw;
+  width: 100vw;
   border: none;
 }
 
