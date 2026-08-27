@@ -33,6 +33,7 @@ iframe[name="unified-controls"] {
 
 .tumblr-content {
     padding: 15px;
+    color: black;
     max-height: 1500px;
     overflow-y: auto;
 }
