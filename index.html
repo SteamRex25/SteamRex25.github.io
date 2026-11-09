@@ -31,12 +31,124 @@
             <span>● ● ●</span>
         </div>
 
-        <div class="tumblr-content">
-            <script
-                type="text/javascript"
-                src="https://royalrex25.tumblr.com/js">
-            </script>
-        </div>
+        <div class="tumblr-content" id="tumblr-feed">
+    <p>Loading Tumblr posts...</p>
+</div>
+
+<script>
+const TUMBLR_API_KEY = "pGiTqkRR5qurrXj605wx7VGX47cr9awepfIBfmvgGPXiAQe2aJ";
+const TUMBLR_BLOG = "royalrex25.tumblr.com";
+
+async function loadTumblrFeed() {
+    const feed = document.getElementById("tumblr-feed");
+
+    try {
+        const url = new URL(
+            `https://api.tumblr.com/v2/blog/${TUMBLR_BLOG}/posts`
+        );
+
+        url.searchParams.set("api_key", TUMBLR_API_KEY);
+        url.searchParams.set("limit", "10");
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`Tumblr API returned ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.meta.status !== 200) {
+            throw new Error(data.meta.msg || "Tumblr API error");
+        }
+
+        feed.replaceChildren();
+
+        data.response.posts.forEach(post => {
+            const article = document.createElement("article");
+            article.className = "tumblr-post";
+
+            const heading = document.createElement("h3");
+            heading.textContent = post.title || post.type.toUpperCase();
+
+            const date = document.createElement("small");
+            date.textContent = new Date(
+                post.timestamp * 1000
+            ).toLocaleString();
+
+            article.append(heading, date);
+
+            // Text posts
+            if (post.body) {
+                const body = document.createElement("div");
+                body.className = "tumblr-post-body";
+                body.innerHTML = sanitizeTumblrHTML(post.body);
+                article.append(body);
+            }
+
+            // Photo posts
+            if (post.photos) {
+                post.photos.forEach(photo => {
+                    const img = document.createElement("img");
+                    img.src = photo.original_size.url;
+                    img.alt = photo.caption || "Tumblr photo";
+                    img.loading = "lazy";
+                    article.append(img);
+                });
+            }
+
+            // Video posts
+            if (post.video_url) {
+                const video = document.createElement("video");
+                video.src = post.video_url;
+                video.controls = true;
+                video.preload = "none";
+                article.append(video);
+            }
+
+            // Post link
+            const link = document.createElement("a");
+            link.href = post.post_url;
+            link.textContent = "View on Tumblr";
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+
+            article.append(link);
+            feed.append(article);
+        });
+
+    } catch (error) {
+        console.error("Tumblr feed error:", error);
+        feed.textContent = "Couldn't load Tumblr posts.";
+    }
+}
+
+function sanitizeTumblrHTML(html) {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+
+    doc.querySelectorAll(
+        "script, iframe, object, embed, form"
+    ).forEach(element => element.remove());
+
+    doc.querySelectorAll("*").forEach(element => {
+        [...element.attributes].forEach(attribute => {
+            if (
+                attribute.name.startsWith("on") ||
+                (
+                    ["href", "src"].includes(attribute.name) &&
+                    /^\s*javascript:/i.test(attribute.value)
+                )
+            ) {
+                element.removeAttribute(attribute.name);
+            }
+        });
+    });
+
+    return doc.body.innerHTML;
+}
+
+loadTumblrFeed();
+</script>
     </div>
 </section>
 
