@@ -128,4 +128,49 @@ main {
     width: 60vw;
     max-width: 300px;
   }
+
+  /* Custom Tumblr API Feed */
+
+.tumblr-post {
+    text-align: left;
+    padding: 20px 0;
+    margin-bottom: 25px;
+    border-bottom: 2px dashed #aaa;
+    overflow-wrap: anywhere;
+}
+
+.tumblr-post h3 {
+    margin-top: 0;
+}
+
+.tumblr-post small {
+    display: block;
+    color: #777 !important;
+    margin-bottom: 15px;
+}
+
+.tumblr-post img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 15px auto;
+}
+
+.tumblr-post video {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    margin: 15px auto;
+}
+
+.tumblr-post-body {
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+.tumblr-post a {
+    display: inline-block;
+    margin-top: 12px;
+    color: #555 !important;
+}
 }
