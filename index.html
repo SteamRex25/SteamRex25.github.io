@@ -69,7 +69,11 @@ async function loadTumblrFeed() {
             article.className = "tumblr-post";
 
             const heading = document.createElement("h3");
-            heading.textContent = post.title || post.type.toUpperCase();
+            if (post.title) {
+                const heading = document.createElement("h3");
+                heading.textContent = post.title;
+                article.append(heading);
+            }
 
             const date = document.createElement("small");
             date.textContent = new Date(
